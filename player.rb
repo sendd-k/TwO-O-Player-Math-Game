@@ -5,14 +5,6 @@ class Player
     @lives = 3
   end
 
-  def wrong
-    @lives -= 1
-  end
-
-  def check_lives
-    @lives == 0
-  end
-
   def question
     question = Question.new
     question.question(name)
@@ -25,4 +17,13 @@ class Player
       wrong
     end
   end
+
+  def wrong
+    @lives -= 1
+  end
+
+  def check_lives
+    @lives == 0
+  end
+
 end

@@ -8,25 +8,6 @@ class Game
     new_turn
   end
 
-  def score
-    puts "P1: #{@player1.lives}/3 vs P2: #{@player2.lives}/3"
-  end
-
-  def game_over(player)
-    puts "#{player.name} wins with the score of #{player.lives}/3"
-    puts '---------GAME-OVER--------'
-    puts 'Good bye!'
-    exit(0)
-  end
-
-  def check_score
-    if @player1.check_lives
-      game_over(@player2)
-    elsif @player2.check_lives
-      game_over(@player1)
-    end
-  end
-
   $turn = 1
 
   def new_turn
@@ -43,5 +24,24 @@ class Game
     end
     $turn += 1
     new_turn
+  end
+
+  def check_score
+    if @player1.check_lives
+      game_over(@player2)
+    elsif @player2.check_lives
+      game_over(@player1)
+    end
+  end
+
+  def score
+    puts "P1: #{@player1.lives}/3 vs P2: #{@player2.lives}/3"
+  end
+
+  def game_over(player)
+    puts "#{player.name} wins with the score of #{player.lives}/3"
+    puts '---------GAME-OVER--------'
+    puts 'Good bye!'
+    exit(0)
   end
 end
